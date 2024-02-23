@@ -8,13 +8,17 @@ class Program
         string input = "Hello 117!";
         HashSet<char> uniqueChars = new HashSet<char>();
         int totalCharsWithoutSpaces = 0;
+        int uniqueCount = 0; // Счетчик для уникальных символов
 
         foreach (char c in input)
         {
             if (c != ' ') // Пропускаем пробелы
             {
-                uniqueChars.Add(c); // Добавляем символ, если он не пробел
                 totalCharsWithoutSpaces++; // Считаем все символы, кроме пробела
+                if (uniqueChars.Add(c)) // Add возвращает true, если элемент был добавлен
+                {
+                    uniqueCount++; // Увеличиваем счетчик уникальных символов
+                }
             }
         }
 
@@ -23,6 +27,6 @@ class Program
         {
             Console.Write(c + " ");
         }
-        Console.WriteLine($"\n{uniqueChars.Count} / {totalCharsWithoutSpaces}");
+        Console.WriteLine($"\n{uniqueCount} / {totalCharsWithoutSpaces}");
     }
 }
