@@ -1,21 +1,21 @@
 using System;
 
-class MergeSortExample
+public class MergeSortExample
 {
     public static void Main(string[] args)
     {
         // Массив для сортировки
         int[] arr = { 12, 11, 13, 5, 6, 7 };
-        Console.WriteLine("Given array is:");
+        Console.WriteLine("Массив для сортировки:");
         PrintArray(arr);
 
         MergeSort(arr, 0, arr.Length - 1);
 
-        Console.WriteLine("\nSorted array is:");
+        Console.WriteLine("\nОтсортированный массив is:");
         PrintArray(arr);
 
         // Добавление элементов в массив
-        Console.WriteLine("\nEnter number of additional elements:");
+        Console.WriteLine("\nКоличество элементов в массиве:");
         int numElements = Convert.ToInt32(Console.ReadLine());
         int[] newArr = new int[arr.Length + numElements];
         arr.CopyTo(newArr, 0);
@@ -28,7 +28,7 @@ class MergeSortExample
 
         // Сортировка обновлённого массива
         MergeSort(newArr, 0, newArr.Length - 1);
-        Console.WriteLine("Sorted array after adding new elements:");
+        Console.WriteLine("Отсортированный массив:");
         PrintArray(newArr);
     }
 
