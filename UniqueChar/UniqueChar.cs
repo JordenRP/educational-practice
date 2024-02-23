@@ -5,13 +5,17 @@ class Program
 {
     static void Main()
     {
-        string sample = "Пример строки 123! Пример.";
+        string input = "Hello 117!";
         HashSet<char> uniqueChars = new HashSet<char>();
+        int totalCharsWithoutSpaces = 0;
 
-        foreach (char c in sample)
+        foreach (char c in input)
         {
-            // Добавление символа в HashSet автоматически обеспечивает уникальность
-            uniqueChars.Add(c);
+            if (c != ' ') // Пропускаем пробелы
+            {
+                uniqueChars.Add(c); // Добавляем символ, если он не пробел
+                totalCharsWithoutSpaces++; // Считаем все символы, кроме пробела
+            }
         }
 
         Console.WriteLine("Уникальные символы в строке:");
@@ -19,5 +23,6 @@ class Program
         {
             Console.Write(c + " ");
         }
+        Console.WriteLine($"\n{uniqueChars.Count} / {totalCharsWithoutSpaces}");
     }
 }
